@@ -1,0 +1,4 @@
+Compiling raspberry pi pico binaries with Earthly
+
+This example shows how to create a program that will blink an led on
+a raspberry pi pico.
