@@ -2,3 +2,12 @@ Compiling raspberry pi pico binaries with Earthly
 
 This example shows how to create a program that will blink an led on
 a raspberry pi pico.
+
+To compile:
+
+ 1. Install earthly
+ 2. run: earthly +blink
+ 3. press-and-hold the bootsel, then plug the raspberry pi pico into the USB port
+ 4. copy output/blink.uf2 on to the pico's mounted usb drive. Under ubuntu, the following might work:
+    cp output/blink.uf2 /media/$USER/RPI-RP2/.
+ 5. sycn and unmount pico's usb drive (which might happen automatically).
