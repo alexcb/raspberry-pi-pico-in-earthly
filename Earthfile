@@ -22,8 +22,7 @@ reformat:
     RUN find . -type f -name '*.c' -exec clang-format-7 -i {} \;
     SAVE ARTIFACT * AS LOCAL ./
 
-
-test:
+blink:
     FROM +deps
     WORKDIR /code
     RUN cp "$PICO_SDK_PATH/external/pico_sdk_import.cmake" .
