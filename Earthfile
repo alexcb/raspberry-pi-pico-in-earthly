@@ -10,6 +10,19 @@ deps:
     RUN git clone https://github.com/raspberrypi/pico-sdk.git . && \
         git submodule update --init
 
+reformat:
+    FROM ubuntu:20.04
+    ENV DEBIAN_FRONTEND=noninteractive
+    RUN apt-get update && \
+        apt-get install -y \
+        clang-format-7
+    WORKDIR /code
+    COPY .clang-format .
+    COPY *.c .
+    RUN find . -type f -name '*.c' -exec clang-format-7 -i {} \;
+    SAVE ARTIFACT * AS LOCAL ./
+
+
 test:
     FROM +deps
     WORKDIR /code
